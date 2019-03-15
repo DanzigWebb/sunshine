@@ -1,0 +1,24 @@
+---
+title: проект
+description: это мой сайт-портфолио, на котором я демонстрирую свои профессиоальные навыки
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+
+{% include head.html %}
+
+<body>
+
+<div id="my-page">
+	{% include header.html %}
+	<div class="page-content">
+		<div class="main-content">
+			{% include mypage/mainpage.html %}
+		</div>
+	</div>
+	{% include footer.html %}
+</div>
+<script src="assets/js/myScripts.js"></script>
+</body>
+</html>
