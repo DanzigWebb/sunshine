@@ -1,6 +1,8 @@
 @import "vars"
 @import "libs"
-
+@font-face
+  font-family: 'Pe-icon-7-stroke'
+  src: url("fonts/Pe-icon-7-stroke.woff")
 ::placeholder
   color: #666
 
@@ -28,17 +30,24 @@ body
 h1, h2, h3, h4, h5
   font-family: 'Oswald', sans-serif
   font-weight: 400
-  letter-spacing: -0.5px
-
-
+p
+  font-size: 0.875em
+  margin: 0 0 10px
+  font-weight: 300
+  color: #666
+  
 .title-1
   font-size: 70px
 .title-2
   font-size: 30px
 .title-3
-  font-size: 26px
+  font-size: 1.17em
 .title-4
-  font-size: 24px
+  font-size: 1.17em
+  border-bottom: 2px solid $accent
+  display: inline-block
+  padding-bottom: 2px
+  margin-bottom: $gutter
 .title-5
   font-size: 20px
 
@@ -66,6 +75,14 @@ b, strong
 
 
 //кастомный код
+// переход по страницам
+#sub-portfolio:target
+  display: flex
+#sub-aboutme:target
+  display: block
+
+
+
 //мобильный хедер
 .mobile-header
   height: 46px
@@ -161,21 +178,62 @@ b, strong
       background-color: $accent
 
 // main content
-.page-content
-  display: flex
-  justify-content: flex-end
 .main-content
-  padding: 40px
-  background-color: #fff
-  position: relative
   width: 77%
   height: 100vh
-  display: flex
-  justify-content: center
-  align-items: center
   +media-breakpoint-down(md)
     width: 100%
     margin-top: 46px
+.page-content
+  display: flex
+  justify-content: flex-end
+
+// subpage
+
+.subpage
+  padding: 60px
+  background-color: #fff
+  position: relative
+  height: 100vh
+  +media-breakpoint-down(xs)
+    padding: 15px
+  
+
+.subpage-heading
+  display: flex
+  align-items: center
+  font-family: 'Oswald', sans-serif
+  margin-bottom: 2*$gutter
+  &__title
+    padding: 7px 20px 7px 78px
+    background-color: $accent
+    color: #fff
+    font-size: 22px
+    position: relative
+    margin-left: -70px
+    margin-right: $gutter
+    display: inline-block
+    &:before
+      display: block
+      width: 10px
+      height: 0px
+      position: absolute
+      bottom: -10px
+      left: 0px
+      content: ""
+      border-bottom: 10px solid transparent
+      border-right: 10px solid #ebbd34
+
+  &__descr
+    color: #9c9c9c
+    font-size: 14px
+
+// portfolio
+
+.portfolio
+  justify-content: center
+  align-items: center
+  display: none
 .bg-home
   background-image: url(https://lmpixels.com/demo/sunshine-demo/sunshine-version-2/sunshine-html-template/images/home_page_bg_2.jpg)
   background-size: cover
@@ -186,18 +244,17 @@ b, strong
   left: 0
   width: 100%
   filter: grayscale(40%) brightness(50%) blur(1px)
-.main-content-heading
+.portfolio-heading
   position: relative
   color: #fff
-
-.main-content-heading
   p 
     margin-bottom: 10px
+    color: #fff
 
-.main-content-heading__title
+.portfolio-heading__title
   margin-bottom: 3*$gutter
   font-weight: 500
-.main-content-heading__special
+.portfolio-heading__special
   font-family: 'Oswald', sans-serif
   font-size: 16px
   border-bottom: 3px solid $accent
@@ -205,7 +262,34 @@ b, strong
   margin-right: 40px
   letter-spacing: 0.5px
   
+// about me
+.aboutme
+  display: none
+  height: auto
+.aboutme-heading
+  margin-bottom: 2*$gutter
+.aboutme-services
+  margin-bottom: 2*$gutter
+.aboutme-services-item
+  text-align: center
+  img
+    max-height: 74px
+    margin-bottom: $gutter
 
-
-
+.aboutme-facts-item
+  text-align: center
+  padding: 20px 10px 15px
+  margin-right: -10px
+  .pe-7s-icon
+    font-size: 56px
+    color: #888
+.aboutme-facts-wrap
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1)
+  padding: 10px 0
+.aboutme-facts-wrap--gray
+  background-color: #fafafa
+.aboutme-facts-item__number
+  font-size: 24px
+  color: $accent
+  font-weight: 600
 @import "media"
