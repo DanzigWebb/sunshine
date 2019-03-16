@@ -75,12 +75,57 @@ b, strong
 
 
 //кастомный код
+// subpage
+
+.subpage
+  padding: 60px
+  background-color: #fff
+  position: relative
+  height: 100vh
+  +media-breakpoint-down(xs)
+    padding: 15px
+  
+
+.subpage-heading
+  display: flex
+  align-items: center
+  font-family: 'Oswald', sans-serif
+  margin-bottom: 2*$gutter
+  &__title
+    padding: 7px 20px 7px 78px
+    background-color: $accent
+    color: #fff
+    font-size: 22px
+    position: relative
+    margin-left: -70px
+    margin-right: $gutter
+    display: inline-block
+    &:before
+      display: block
+      width: 10px
+      height: 0px
+      position: absolute
+      bottom: -10px
+      left: 0px
+      content: ""
+      border-bottom: 10px solid transparent
+      border-right: 10px solid #ebbd34
+
+  &__descr
+    color: #9c9c9c
+    font-size: 14px
+
 // переход по страницам
 #sub-portfolio:target
-  display: flex
+  opacity: 1
 #sub-aboutme:target
-  display: block
-
+  transform: translateY(0)
+.aboutme
+  position: absolute
+  transform: translateY(-100%)
+  top: 0  
+  height: auto
+  transition: $anim
 
 
 //мобильный хедер
@@ -180,7 +225,8 @@ b, strong
 // main content
 .main-content
   width: 77%
-  height: 100vh
+  min-height: 100vh
+  position: relative
   +media-breakpoint-down(md)
     width: 100%
     margin-top: 46px
@@ -188,52 +234,14 @@ b, strong
   display: flex
   justify-content: flex-end
 
-// subpage
 
-.subpage
-  padding: 60px
-  background-color: #fff
-  position: relative
-  height: 100vh
-  +media-breakpoint-down(xs)
-    padding: 15px
-  
-
-.subpage-heading
-  display: flex
-  align-items: center
-  font-family: 'Oswald', sans-serif
-  margin-bottom: 2*$gutter
-  &__title
-    padding: 7px 20px 7px 78px
-    background-color: $accent
-    color: #fff
-    font-size: 22px
-    position: relative
-    margin-left: -70px
-    margin-right: $gutter
-    display: inline-block
-    &:before
-      display: block
-      width: 10px
-      height: 0px
-      position: absolute
-      bottom: -10px
-      left: 0px
-      content: ""
-      border-bottom: 10px solid transparent
-      border-right: 10px solid #ebbd34
-
-  &__descr
-    color: #9c9c9c
-    font-size: 14px
 
 // portfolio
 
 .portfolio
+  display: flex
   justify-content: center
   align-items: center
-  display: none
 .bg-home
   background-image: url(https://lmpixels.com/demo/sunshine-demo/sunshine-version-2/sunshine-html-template/images/home_page_bg_2.jpg)
   background-size: cover
@@ -263,9 +271,6 @@ b, strong
   letter-spacing: 0.5px
   
 // about me
-.aboutme
-  display: none
-  height: auto
 .aboutme-heading
   margin-bottom: 2*$gutter
 .aboutme-services
