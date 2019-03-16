@@ -82,6 +82,7 @@ b, strong
   background-color: #fff
   position: relative
   height: 100vh
+  transition: all 0.8s ease-in-out
   +media-breakpoint-down(xs)
     padding: 15px
   
@@ -116,16 +117,21 @@ b, strong
     font-size: 14px
 
 // переход по страницам
-#sub-portfolio:target
+#sub-mainscreen:target
   opacity: 1
-#sub-aboutme:target
-  transform: translateY(0)
-.aboutme
+#sub-aboutme:target, #sub-resume:target, #sub-portfolio:target
+  transform: translate3d(0, 0, 0)
+  opacity: 1
+
+
+.aboutme, .resume, .portfolio
   position: absolute
-  transform: translateY(-100%)
+  transform: translate3d(0, -100%, 0)
   top: 0  
-  height: auto
-  transition: $anim
+  height: 100%
+  width: 100%
+  opacity: 0
+  
 
 
 //мобильный хедер
@@ -225,7 +231,7 @@ b, strong
 // main content
 .main-content
   width: 77%
-  min-height: 100vh
+  min-height: calc(100vh + 50px)
   position: relative
   +media-breakpoint-down(md)
     width: 100%
@@ -236,9 +242,9 @@ b, strong
 
 
 
-// portfolio
+// mainscreen
 
-.portfolio
+.mainscreen
   display: flex
   justify-content: center
   align-items: center
@@ -248,21 +254,21 @@ b, strong
   background-position: center center
   position: absolute
   top: 0
-  height: 100%
+  height: calc(100vh + 50px)
   left: 0
   width: 100%
   filter: grayscale(40%) brightness(50%) blur(1px)
-.portfolio-heading
+.mainscreen-heading
   position: relative
   color: #fff
   p 
     margin-bottom: 10px
     color: #fff
 
-.portfolio-heading__title
+.mainscreen-heading__title
   margin-bottom: 3*$gutter
   font-weight: 500
-.portfolio-heading__special
+.mainscreen-heading__special
   font-family: 'Oswald', sans-serif
   font-size: 16px
   border-bottom: 3px solid $accent
