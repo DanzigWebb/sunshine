@@ -120,17 +120,16 @@ b, strong
 #sub-mainscreen:target
   opacity: 1
 #sub-aboutme:target, #sub-resume:target, #sub-portfolio:target
-  transform: translate3d(0, 0, 0)
-  opacity: 1
+  transform: translate3d(0, 0, 0) scaleY(1)
 
 
 .aboutme, .resume, .portfolio
   position: absolute
-  transform: translate3d(0, -100%, 0)
+  transform: translate3d(0, -100%, 0) scaleY(0)
   top: 0  
-  height: 100%
+  min-height: calc(100vh + 50px)
+  height: auto
   width: 100%
-  opacity: 0
   
 
 
