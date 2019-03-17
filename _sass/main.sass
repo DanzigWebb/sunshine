@@ -81,7 +81,6 @@ b, strong
   padding: 60px
   background-color: #fff
   position: relative
-  min-height: 100vh
   transition: all 0.8s ease-in-out
   +media-breakpoint-down(xs)
     padding: 15px
@@ -117,11 +116,20 @@ b, strong
     font-size: 14px
 
 // переход по страницам
-#sub-mainscreen:target
-  opacity: 1
-#sub-aboutme:target, #sub-resume:target, #sub-portfolio:target
-  transform: translate3d(0, 0, 0) scaleY(1)
 
+#sub-aboutme:target, #sub-resume:target, #sub-portfolio:target,
+  transform: translate3d(0, 0, 0) scaleY(1)
+  z-index: 9
+  min-height: 100vh
+  height: auto
+  .mainscreen
+    position: absolute
+    transform: translate3d(0, -100%, 0) scaleY(0)
+    top: 0
+    min-height: 100%
+    height: auto
+    overflow: visible
+    width: 100%
 
 .aboutme, .resume, .portfolio
   position: absolute
@@ -232,7 +240,8 @@ b, strong
 // main content
 .main-content
   width: 77%
-  min-height: calc(100vh + 50px)
+  min-height: 100%
+  height: auto
   position: relative
   +media-breakpoint-down(md)
     width: 100%
@@ -249,13 +258,18 @@ b, strong
   display: flex
   justify-content: center
   align-items: center
+  min-height: 100vh
+  height: auto
+  width: 100%
+  position: absolute
+  top: 0
 .bg-home
   background-image: url(https://lmpixels.com/demo/sunshine-demo/sunshine-version-2/sunshine-html-template/images/home_page_bg_2.jpg)
   background-size: cover
   background-position: center center
   position: absolute
   top: 0
-  height: calc(100vh + 50px)
+  height: 100%
   left: 0
   width: 100%
   filter: grayscale(40%) brightness(50%) blur(1px)
